@@ -24,11 +24,11 @@
     <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
         <leaf>
-          <file leaf-file-name="controllers.js" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/js/app/controllers.js">
+          <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/.gitignore">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.5717151">
-                  <caret line="30" column="10" selection-start-line="30" selection-start-column="10" selection-end-line="30" selection-end-column="10" />
+                <state vertical-scroll-proportion="0.019587629">
+                  <caret line="1" column="9" selection-start-line="1" selection-start-column="9" selection-end-line="1" selection-end-column="9" />
                   <folding />
                 </state>
               </provider>
@@ -55,8 +55,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/scripts/factories.js" />
-        <option value="$PROJECT_DIR$/styles/vip-exclusive.sass" />
         <option value="$PROJECT_DIR$/templates/vip-exclusive.html" />
         <option value="$PROJECT_DIR$/templates/customer.html" />
         <option value="$PROJECT_DIR$/styles/sidebar.sass" />
@@ -106,6 +104,8 @@
         <option value="$PROJECT_DIR$/js/app/app.js" />
         <option value="$PROJECT_DIR$/js/app/controllers.js" />
         <option value="$PROJECT_DIR$/js/app/services.js" />
+        <option value="$PROJECT_DIR$/js/app/.gitignore" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -427,11 +427,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/assets/img" />
       <recent name="$PROJECT_DIR$/assets" />
       <recent name="$PROJECT_DIR$/styles" />
       <recent name="$PROJECT_DIR$/templates/dashboard" />
-      <recent name="$PROJECT_DIR$/templates/customer" />
     </key>
   </component>
   <component name="RunManager">
@@ -518,13 +518,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/js/libs/angular-ui-router/bower.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.29787233">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/libs/angularfire/.bower.json">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1105,6 +1098,24 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5717151">
           <caret line="30" column="10" selection-start-line="30" selection-start-column="10" selection-end-line="30" selection-end-column="10" />
+          <folding>
+            <marker date="1452716091000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1452716091000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1452716091000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1452716091000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1452716091000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1452716091000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1452716091000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1452716091000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1452716091000" expanded="true" signature="-1:-1" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.019587629">
+          <caret line="1" column="9" selection-start-line="1" selection-start-column="9" selection-end-line="1" selection-end-column="9" />
           <folding />
         </state>
       </provider>
