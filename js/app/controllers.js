@@ -9,6 +9,7 @@ axbControllers.controller('DashboardController',
 
 axbControllers.controller('CustomerController',
 	function($scope, $state, userService) {
+		
 		//userService.resetFB();return;
 
 		// Toggle Sidebar Menu
@@ -42,10 +43,34 @@ axbControllers.controller('CustomerController',
 		    userService.setAction($scope, actionKey);
 		};
 
+		$scope.setVisited = function($scope, subclass) {
+		    userService.setVisited($scope, subclass);
+		};
+
 	});
 
 axbControllers.controller('SubpageController',
-	function($scope, $state) {
+	function($scope, $state, forecastIOService) {
+		
+		// If no user is found, redirect to check in
+		if(!$scope.userExists()) {
+			$state.go('customer.check-in');
+		}
+
+		// Apply subclass action. i.e. "Shopping the Look"
 		var sc = $state.current.data.subclass;
 		$scope.setAction($scope, sc);
+
+		// Apply visited action
+		$scope.setVisited($scope, sc);
+		
+		// Move to directive
+		if($state.current.name == 'customer.weather-select') {
+			$scope.weather = {};
+			forecastIOService.call(function(data) {
+				$scope.weather = data.currently;
+				$scope.weather.temperature = Math.round($scope.weather.temperature);
+			});
+		}
+
 	});

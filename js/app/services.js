@@ -1,7 +1,7 @@
 var axbServices = angular.module('axbServices', []);
 
 /*
-User Service. Abstracts both Firebase and LocalStorage user
+ User Service. Abstracts both Firebase and LocalStorage user
  */
 axbServices.factory('userService', function(
 	$rootScope,
@@ -13,7 +13,6 @@ axbServices.factory('userService', function(
 ) {
 	var service = {
 		init: function($scope) {
-			console.log('initting');
 			// Initialize User Services
 			localUserService.restoreState();
 			$scope.user = localUserService.model;
@@ -50,9 +49,7 @@ axbServices.factory('userService', function(
 			$state.go(redirect);
 		},
 		saveUser: function($scope) {
-			console.log('saving user');
 		    if(firebaseUserService.user) {
-				console.log('saving sb user');
 				firebaseUserService.user = angular.extend(firebaseUserService.user, $scope.user);
 				firebaseUserService.user.$save();
 			}
@@ -60,8 +57,14 @@ axbServices.factory('userService', function(
 			localUserService.saveState();
 		},
 		setAction: function($scope, actionKey) {
-			console.log('happening?');
 		    $scope.user.action = actions[actionKey] || actionKey;
+			service.saveUser($scope);
+		},
+		setVisited: function($scope, subclass) {
+			var key = subclass.replace(/-([a-z])/g, function(g) {
+				return g[1].toUpperCase();
+			});
+		    $scope.user.visited[key] = true;
 			service.saveUser($scope);
 		}
 	};
@@ -88,22 +91,25 @@ axbServices.factory('actions', function() {
 /*
  Local User Service
  */
-axbServices.factory('localUserService', function($rootScope) {
-
+axbServices.factory('localUserService', function(
+		$rootScope
+	) {
 	// Data Model
 	var base = {
 		key: false, // key for firebase
 		firstName: '',
 		lastName: '',
 		email: '',
-		vip: false,
-		shopLook: false,
-		virtualStylist: false,
-		shoptelligence: false,
-		authentication: false,
-		weatherSelect: false,
 		action: '',
-		requestedItem: null
+		requestedItem: null,
+		visited: {
+			vipExclusive: false,
+			shopTheLook: false,
+			virtualStylist: false,
+			shoptelligence: false,
+			authenticity: false,
+			weatherSelect: false
+		}
 	};
 
 	var service = {
@@ -138,9 +144,12 @@ axbServices.factory('localUserService', function($rootScope) {
 });
 
 /*
-Firebase Intergration Service
+ Firebase Intergration Service
  */
-axbServices.factory('firebaseUserService', function($firebaseObject, $firebaseArray) {
+axbServices.factory('firebaseUserService', function(
+		$firebaseObject,
+		$firebaseArray
+	) {
 		var fbRef = new Firebase('https://burning-heat-6184.firebaseio.com/users/');
 		return {
 			user: null,
@@ -151,7 +160,6 @@ axbServices.factory('firebaseUserService', function($firebaseObject, $firebaseAr
 			    return $firebaseArray(fbRef);
 			},
 			init: function(modelData) {
-				console.log(modelData);
 				this.setUser(fbRef.push(modelData));
 				return this.user.$id;
 			},
@@ -165,51 +173,22 @@ axbServices.factory('firebaseUserService', function($firebaseObject, $firebaseAr
 	}
 );
 
-
-//setValue: function(user, value) {
-//	var userIndex = user.model.i;
-//
-//	switch(value) {
-//		case 'vip':
-//			service.array[userIndex].action = 'Checking VIP Coupon';
-//			break;
-//		case 'shopLook':
-//			service.array[userIndex].action = 'Shopping the look';
-//			break;
-//		case 'virtualStylist':
-//			service.array[userIndex].action = 'Using the virtual stylist';
-//			break;
-//		case 'weatherSelect':
-//			service.array[userIndex].action = 'Checking our weather reccomendations';
-//			break;
-//		case 'shoptelligence':
-//			service.array[userIndex].action = 'Using Shoptelligence';
-//			break;
-//	}
-//
-//	// Local/Firebase
-//	service.array[userIndex][value] = true;
-//	service.array.$save(userIndex);
-//	// Session
-//	user.model[value] = true;
-//	user.SaveState();
-//},
-//setItemStatus: function(user, statusKey, itemKey) {
-//	var userIndex = user.model.i;
-//	var email = service.array[userIndex].email;
-//	var items = {
-//		wool: 'Wool Cardigan and Tiered Skirt'
-//	};
-//	var statuses = {
-//		'try': 'Waiting in to try on ' + items[itemKey],
-//		'buy store': 'Prepare for register purchase: ' + items[itemKey],
-//		'buy ship': 'Ship' + items[itemKey] + ' to ' + email
-//	};
-//
-//	service.array[userIndex].action = statuses[statusKey];
-//
-//	// Local/Firebase
-//	service.array.$save(userIndex);
-//	// Session
-//	user.SaveState();
-//}
+/*
+ Forecast IO API Service
+ */
+axbServices.factory('forecastIOService', function($http) {
+		var apiUrl = 'https://api.forecast.io/forecast/';
+		var key = '50efc01999c6c329ae64ade7449047fe/';
+		var lat = '40.748441';
+		var lon = '-73.985793';
+		var url = apiUrl + key + lat + ',' + lon;
+		return {
+			call: function(callback) {
+				$http({
+					method: 'GET',
+					url: url
+				}).success(callback);
+			}
+		}
+	}
+);

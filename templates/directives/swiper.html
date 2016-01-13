@@ -1,8 +1,13 @@
 <div class="swiper-container">
     <div class="swiper-wrapper">
-        <div ng-repeat="foo in foos track by $index" end-repeat class="swiper-slide"
-             ng-class="{'red': $index % 2 != 0, 'blue': $index % 2 == 0}" style="text-align: center; font-size: 50px;">
-            {{$index}}
+        <div ng-repeat="item in items" end-repeat class="swiper-slide">
+            <div class="swiper-item">
+                <div class="top"></div>
+                <div class="bottom">
+                    <p>{{ item.name }}</p>
+                    <p>{{ item.price }}</p>
+                </div>
+            </div>
         </div>
     </div>
 </div>

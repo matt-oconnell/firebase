@@ -219,6 +219,9 @@ h1 {
     display: block;
     margin: 50px auto 0 auto; }
 
+[subclass='virtual-stylist'] .look {
+  text-align: center; }
+
 [subclass="shop-the-look"] .main-desc {
   margin: 18px 0; }
 [subclass="shop-the-look"] input.btn {
@@ -284,5 +287,35 @@ h1 {
     border-top: none; }
     [subclass='weather-select'] .item:first-child .desc {
       margin-top: 16px; }
+
+[subclass="shoptelligence"] {
+  text-align: center; }
+  [subclass="shoptelligence"] .desc {
+    margin: 20px 0 20px; }
+  [subclass="shoptelligence"] .swiper-container {
+    width: 100%;
+    position: absolute;
+    left: 0; }
+  [subclass="shoptelligence"] .swiper-item {
+    text-align: center;
+    width: 115px;
+    height: 154px;
+    border-radius: 5px;
+    background: #484848;
+    position: relative; }
+    [subclass="shoptelligence"] .swiper-item .bottom {
+      height: 40px;
+      width: 100%;
+      background: #3C3C3C;
+      position: absolute;
+      bottom: 0;
+      padding: 5px;
+      border-bottom-right-radius: 5px;
+      border-bottom-left-radius: 5px; }
+      [subclass="shoptelligence"] .swiper-item .bottom p {
+        font-size: 10px;
+        color: white; }
+        [subclass="shoptelligence"] .swiper-item .bottom p:last-child {
+          line-height: 1; }
 
 /*# sourceMappingURL=app.css.map */

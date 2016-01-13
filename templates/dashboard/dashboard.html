@@ -13,11 +13,11 @@
         </div>
         <div class="row clearfix" ng-repeat="user in users">
             <div>{{ user.firstName }}</div>
-            <div><span ng-show="user.vip">●</span></div>
-            <div><span ng-show="user.shopLook">●</span></div>
-            <div><span ng-show="user.virtualStylist">●</span></div>
-            <div><span ng-show="user.shoptelligence">●</span></div>
-            <div><span ng-show="user.authentication">●</span></div>
+            <div><span ng-show="user.visited.vipExclusive">●</span></div>
+            <div><span ng-show="user.visited.shopTheLook">●</span></div>
+            <div><span ng-show="user.visited.virtualStylist">●</span></div>
+            <div><span ng-show="user.visited.shoptelligence">●</span></div>
+            <div><span ng-show="user.visited.authenticity">●</span></div>
             <div>{{ user.action }}</div>
         </div>
     </div>

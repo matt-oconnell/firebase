@@ -32,19 +32,53 @@ axbDirectives.directive('swiper', function() {
 		restrict: 'A',
 		templateUrl: 'templates/directives/swiper.html',
 		link: function(scope) {
-			scope.foos = new Array(20);
+			scope.items = [
+				{
+					img: null,
+					name: 'name',
+					price: '$0.00'
+				},
+				{
+					img: null,
+					name: 'name',
+					price: '$0.00'
+				},
+				{
+					img: null,
+					name: 'name',
+					price: '$0.00'
+				},
+				{
+					img: null,
+					name: 'name',
+					price: '$0.00'
+				},
+				{
+					img: null,
+					name: 'name',
+					price: '$0.00'
+				},
+				{
+					img: null,
+					name: 'name',
+					price: '$0.00'
+				},
+				{
+					img: null,
+					name: 'name',
+					price: '$0.00'
+				}
+			];
 			scope.clicked = function(index) {
-				alert(index)
+				alert(index);
 			};
 			scope.$on('ngRepeatFinished', function() {
-				var mySwiper = new Swiper('.swiper-container', {
-					slidesPerView:'auto',
+				new Swiper('.swiper-container', {
+					slidesPerView: 3,
+					initialSlide: 3,
 					watchActiveIndex: true,
 					centeredSlides: true,
-					paginationClickable: true,
 					resizeReInit: true,
-					keyboardControl: true,
-					grabCursor: true,
 					onSlideClick: function(swiper) {
 						angular
 							.element(swiper.clickedSlide)
