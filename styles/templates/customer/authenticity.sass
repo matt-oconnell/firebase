@@ -1,0 +1,45 @@
+[subclass='authenticity']
+
+    .auth-wrap
+        position: relative
+        padding-bottom: 100%
+        overflow: hidden
+
+        > div
+            opacity: 0.5
+            position: absolute
+            left: 0
+            top: 0
+            bottom: 0
+            right: 0
+            width: 100%
+
+            &:first-child
+                +bg-img('auth1.png')
+                background-size: 100% auto
+                animation: authenticateForwards 10s ease forwards
+
+            &:last-child
+                +bg-img('auth2.png')
+                background-size: 70%
+                background-position: center
+                animation: authenticateBackwards 10s ease forwards
+
+
+@keyframes authenticateForwards
+    0%
+        transform: rotate(0deg)
+    95%
+        opacity: 0.5
+    100%
+        transform: rotate(720deg)
+        opacity: 1
+
+@keyframes authenticateBackwards
+    0%
+        transform: rotate(0deg)
+    95%
+        opacity: 0.5
+    100%
+        transform: rotate(-720deg)
+        opacity: 1

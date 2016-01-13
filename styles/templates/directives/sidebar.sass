@@ -1,0 +1,48 @@
+[axb-sidebar]
+
+    left: -100%
+    background: black
+    position: absolute
+    color: white
+    padding: 90px 65px 0 65px
+    height: 100%
+    transition: all .5s
+    border-right: 1px solid white
+    z-index: 1
+
+    a
+        color: white
+        display: block
+        margin-bottom: 25px
+        text-transform: uppercase
+
+    .logo
+        width: 165px
+        height: 23px
+        +bg-img('logo-white.png')
+        opacity: .5
+        margin-bottom: 40px
+
+    .footer
+        font-size: 11px
+        border-top: 1px solid $light-grey
+        padding-top: 25px
+        margin-top: 75px
+
+    .close
+        position: absolute
+        right: -50px
+        top: 0
+        width: 50px
+        height: 50px
+        display: block
+        +bg-img('menu-close.png')
+        opacity: 0
+        background-size: 35% auto
+        transition: .5s all
+
+    // Toggle Visibility
+    &.show
+        left: 0
+        .close
+            opacity: 1

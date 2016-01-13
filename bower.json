@@ -1,0 +1,28 @@
+{
+  "name": "firebase",
+  "authors": [
+    "Matt O'Connell <mattoconnell408@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "1.4.x",
+    "angular-ui-router": "0.2.x",
+    "angularfire": "1.1.x",
+    "firebase": "2.3.x"
+  },
+  "devDependencies": {
+    "Swiper": "swiper#~3.3.0"
+  }
+}

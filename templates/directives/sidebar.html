@@ -1,0 +1,11 @@
+<span class="close" ng-click="toggleCustom()"></span>
+<div class="logo"></div>
+<a ui-sref=".check-in" ng-show="!user.key">Check In</a>
+<a ui-sref=".check-in" ng-show="user.key" ng-click="removeUser()">Check Out</a>
+<a ui-sref=".vip-exclusive" ng-show="user.key" ng-click="setValue('vip')">VIP Exclusive</a>
+<a ui-sref=".shop-the-look" ng-click="setValue('shopLook')">Shop the look</a>
+<a ui-sref=".virtual-stylist" ng-click="setValue('virtualStylist')">Virtual Stylist</a>
+<a ui-sref=".weather-select" ng-click="setValue('weatherSelect')">Weather Select</a>
+<a ui-sref=".shoptelligence" ng-click="setValue('shoptelligence')">Shoptelligence</a>
+<a ui-sref=".authenticity" ng-click="setValue('authenticity')">Authenticity</a>
+<div class="footer">BT 2016</div>

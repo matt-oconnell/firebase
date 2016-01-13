@@ -1,0 +1,11 @@
+<div class="page-customer">
+
+    <div axb-sidebar ng-class="{'show' : toggle}"></div>
+
+    <div class="header-white">
+        <span ng-click="toggleCustom()" ng-show="userExists()"></span>
+    </div>
+
+    <div ui-view subclass="{{ subclass }}"></div>
+
+</div>

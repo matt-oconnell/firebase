@@ -1,0 +1,19 @@
+<div ng-show="user.key">
+    <h1>You're checked in!</h1>
+    <p>Feel free to walk around the store and do a bunch of shit! Yay!</p>
+</div>
+<div ng-show="!user.key">
+    <h1>Welcome to <br>Alexander Black</h1>
+
+    <p>Sign in below for VIP access, special offers, exclusive content and more.</p>
+
+    <form novalidate ng-submit="addUser()">
+
+        <input type="text" ng-model="user.firstName" placeholder="First Name" required>
+        <input type="text" ng-model="user.lastName" placeholder="Last Name" required>
+        <input type="text" ng-model="user.email" placeholder="E-Mail" required>
+
+        <input class="btn" type="submit">
+
+    </form>
+</div>
